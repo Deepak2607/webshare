@@ -10,20 +10,21 @@
 
 <body>
   <div>
+  <p><input id="files" type="file" multiple></p>
   <p><input id="share" type="button" value="Share"/></p>
   </div>
   <script>
 
   	async function testWebShare() {
   
-      // const file_input = document.querySelector('#files');
-      // const files = file_input.files;
+      const file_input = document.querySelector('#files');
+      const files = file_input.files;
 
-      let file = document.createElement("img");;
-      file.src = "./okcredit.jpeg";
-      files = [file];
+      // let file = document.createElement("img");;
+      // file.src = "./okcredit.jpeg";
+      // files = [file]
       const title = "Share";
-      const text = "Share the application";
+      const text = "Download the app and buy anything from your nearby shops.";
       const url = "https://okcredit.in";
 
       try {

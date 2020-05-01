@@ -2,29 +2,23 @@
 <html>
 
 <head>
-  <title>Web Share Test</title>
+  <title>Web Share API</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <input id="files" type="file" multiple>
-  <input id="share" type="button" value="Share"/>
+  <div>
+  <p><input id="files" type="file" multiple></p>
+  <p><input id="share" type="button" value="Share"/></p>
+  </div>
   <script>
 
   	async function testWebShare() {
-
-      // const title_input = document.querySelector('#title');
-      // const text_input = document.querySelector('#text');
-      // const url_input = document.querySelector('#url');
+  
       const file_input = document.querySelector('#files');
-
-      // const title = title_input.value;
-      // const text = text_input.value;
-      // const url = url_input.value;
       const files = file_input.files;
-
 
       // let files = document.createElement("img");;
       // files.src = "./okcredit.jpeg";
@@ -51,7 +45,7 @@
     }
 
     window.addEventListener('load', onLoad);
-  	
+
   </script>
 </body>
 </html>

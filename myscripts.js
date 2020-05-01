@@ -59,7 +59,7 @@
 
 
       try {
-        await navigator.share({"./okcredit.jpeg", "share", "share on any platform", "https://okcredit.in/"});
+        await navigator.share({files, title, text, url});
         logText('Successfully sent share');
       } catch (error) {
         logError('Error sharing: ' + error);

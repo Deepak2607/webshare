@@ -11,9 +11,9 @@
       // const url = url_input.value;
       const files = file_input.files;
 
-      const title = "Hello";
-      const text = "Hii";
-      const url = "https://example.com";
+      const title = "Share";
+      const text = "Share the application";
+      const url = "https://okcredit.in";
 
       try {
         await navigator.share({files, title, text, url});

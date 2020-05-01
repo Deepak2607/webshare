@@ -20,8 +20,8 @@
 
       const title = "fff";
       const text = "ggg";
-      const url = "deepak2607.github.io";
-      const files = "./okcredit.jpg";
+      const url = "https://deepak2607.github.io/";
+      const files = "./okcredit.jpeg";
 
       try {
         await navigator.share({files, title, text, url});

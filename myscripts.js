@@ -11,16 +11,16 @@
       // const title_input = document.querySelector('#title');
       // const text_input = document.querySelector('#text');
       // const url_input = document.querySelector('#url');
-      // const file_input = document.querySelector('#files');
+      const file_input = document.querySelector('#files');
 
       // const title = title_input.value;
       // const text = text_input.value;
       // const url = url_input.value;
-      // const files = file_input.files;
+      const files = file_input.files;
 
-      const title = "fff";
-      const text = "ggg";
-      const url = "https://deepak2607.github.io/";
+      const title = "The Title";
+      const text = "The message";
+      const url = "https://example.com";
       const files = "./okcredit.jpeg";
 
       try {

@@ -11,9 +11,9 @@
       // const url = url_input.value;
       const files = file_input.files;
 
-      const title = "Share";
-      const text = "Share";
-      const url = "https://okcredit.in";
+      const title = "Hello";
+      const text = "Hii";
+      const url = "https://example.com";
       const files = files;
 
       try {

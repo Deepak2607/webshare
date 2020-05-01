@@ -26,7 +26,7 @@
 
     async function testWebShare() {
       if (navigator.share === undefined) {
-        // logError('Error: Unsupported feature: navigator.share()');
+        logError('Error: Unsupported feature: navigator.share()');
         return;
       }
 
@@ -44,7 +44,7 @@
 
       if (files && files.length > 0) {
         if (!navigator.canShare || !navigator.canShare({files})) {
-          // logError('Error: Unsupported feature: navigator.canShare()');
+          logError('Error: Unsupported feature: navigator.canShare()');
           return;
         }
       }

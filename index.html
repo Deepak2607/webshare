@@ -9,8 +9,8 @@
 </head>
 
 <body>
-  <p><input id="share" type="button" value="Share" />
-
+  <input id="files" type="file" multiple>
+  <input id="share" type="button" value="Share"/>
   <script>
 
   	async function testWebShare() {
@@ -18,14 +18,16 @@
       // const title_input = document.querySelector('#title');
       // const text_input = document.querySelector('#text');
       // const url_input = document.querySelector('#url');
-      // const file_input = document.querySelector('#files');
+      const file_input = document.querySelector('#files');
 
       // const title = title_input.value;
       // const text = text_input.value;
       // const url = url_input.value;
+      const files = file_input.files;
 
-      let files = document.createElement("img");;
-      files.src = "./okcredit.jpeg";
+
+      // let files = document.createElement("img");;
+      // files.src = "./okcredit.jpeg";
       const title = "Share";
       const text = "Share the application";
       const url = "https://okcredit.in";

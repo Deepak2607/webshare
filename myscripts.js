@@ -1,5 +1,5 @@
    
-    function testWebShare() {
+    async function testWebShare() {
 
       const title_input = document.querySelector('#title');
       const text_input = document.querySelector('#text');

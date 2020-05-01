@@ -1,10 +1,10 @@
     'use strict';
 
-    // function sleep(delay) {
-    //   return new Promise(resolve => {
-    //     setTimeout(resolve, delay);
-    //   });
-    // }
+    function sleep(delay) {
+      return new Promise(resolve => {
+        setTimeout(resolve, delay);
+      });
+    }
 
     function logText(message, isError) {
       if (isError)
@@ -68,10 +68,10 @@
 
     }
 
-    // async function testWebShareDelay() {
-    //   await sleep(6000);
-    //   testWebShare();
-    // }
+    async function testWebShareDelay() {
+      await sleep(6000);
+      testWebShare();
+    }
 
 
     function onLoad() {

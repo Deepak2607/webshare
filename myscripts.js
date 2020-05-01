@@ -23,14 +23,6 @@
       logText(message, true);
     }
 
-    // function checkboxChanged(e) {
-    //   const checkbox = e.target;
-    //   const textfield = document.querySelector('#' + checkbox.id.split('_')[0]);
-
-    //   textfield.disabled = !checkbox.checked;
-    //   if (!checkbox.checked)
-    //     textfield.value = '';
-    // }
 
     async function testWebShare() {
       if (navigator.share === undefined) {
@@ -60,7 +52,7 @@
 
       try {
         await navigator.share({files, title, text, url});
-        // logText('Successfully sent share');
+        logText('Successfully sent share');
       } 
       // catch (error) {
       //   logError('Error sharing: ' + error);
@@ -75,13 +67,6 @@
 
 
     function onLoad() {
-
-      // document.querySelector('#title_checkbox').addEventListener('click',
-      //     checkboxChanged);
-      // document.querySelector('#text_checkbox').addEventListener('click',
-      //     checkboxChanged);
-      // document.querySelector('#url_checkbox').addEventListener('click',
-      //     checkboxChanged);
 
       document.querySelector('#share').addEventListener('click', testWebShare);
 

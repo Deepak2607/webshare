@@ -54,9 +54,9 @@
         await navigator.share({files, title, text, url});
         logText('Successfully sent share');
       } 
-      // catch (error) {
-      //   logError('Error sharing: ' + error);
-      // }
+      catch (error) {
+        logError('Error sharing: ' + error);
+      }
 
     }
 

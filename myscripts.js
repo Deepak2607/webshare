@@ -44,10 +44,10 @@
       const file_input = document.querySelector('#files');
 
 
-      const title = title_input.disabled ? undefined : title_input.value;
-      const text = text_input.disabled ? undefined : text_input.value;
-      const url = url_input.disabled ? undefined : url_input.value;
-      const files = file_input.disabled ? undefined : file_input.files;
+      const title = title_input.value;
+      const text = text_input.value;
+      const url = url_input.value;
+      const files = file_input.files;
 
 
       if (files && files.length > 0) {

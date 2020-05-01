@@ -1,3 +1,4 @@
+
 html, body {
   margin: 0;
   padding: 0;
@@ -13,4 +14,12 @@ html, body {
 
 .zc-ref {
   display: none;
+}
+
+.error {
+      color: #d22;
+}
+
+input[type="button"] {
+    height: 30px
 }

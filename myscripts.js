@@ -1,96 +1,102 @@
+    'use strict';
 
-zingchart.MODULESDIR ='https://cdn.zingchart.com/modules/';
+    function sleep(delay) {
+      return new Promise(resolve => {
+        setTimeout(resolve, delay);
+      });
+    }
 
-      //zingchart function
-      zingchart.loadModules("maps,maps-usa", function(){
+    function logText(message, isError) {
+      if (isError)
+        console.error(message);
+      else
+        console.log(message);
 
-      
-        //sending GET request to json file....
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", "https://deepak2607.github.io/blackcoffer_jsondata.json", true);
-        xhttp.send();
+      const p = document.createElement('p');
+      if (isError)
+        p.setAttribute('class', 'error');
+      document.querySelector('#output').appendChild(p);
+      p.appendChild(document.createTextNode(message));
+    }
 
-        
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200){
-            
-            //response of request is stored in 'items'
-            //response is parsed and stored in 'items2'
-            let items= this.responseText;
-            let items2 = JSON.parse(items);
-            console.log(items2);
-            
-            //sectors of all items are fetched from 'items2' and stored in 'sectors' (by using map function)
-            //now 'sectors' is an array containing all sector as its elements
-            let sectors = items2.map(myFunction1)
-            function myFunction1(item){
-              return item.sector;
-            }
-            console.log(sectors);
+    function logError(message) {
+      logText(message, true);
+    }
 
-            
-            //all sectors of 'sectors' array are reduced to a single paragraph and stored into 'para' (by using reduce function)
-            //total number of words in 'para' = 873 (except '&', I ignored '&')
-            //total number of words counted from chart is also 873 
-            //1+4+19+2+14+38+17+1+2+9+19+49+525+56+15+15+9+9+39+18+2+3+5+2= 873
-            let para = sectors.reduce(myFunction2);
-            function myFunction2(para, sector, index, array) {
-                return para+" "+sector;
-            }
-            console.log(para);
+    function checkboxChanged(e) {
+      const checkbox = e.target;
+      const textfield = document.querySelector('#' + checkbox.id.split('_')[0]);
 
+      textfield.disabled = !checkbox.checked;
+      if (!checkbox.checked)
+        textfield.value = '';
+    }
 
+    async function testWebShare() {
+      if (navigator.share === undefined) {
+        logError('Error: Unsupported feature: navigator.share()');
+        return;
+      }
 
-            let chartConfig = {
-              type: 'wordcloud',
-              options: {
-                //'para' is used as text here
-                text: para,
-                aspect: 'spiral',
-                colorType: 'random',
-                ignore: ['establish', 'this', '&'],
-                maxItems: 12000,
-                minLength: '4px',
-                palette: ['#D32F2F', '#1976D2', '#9E9E9E', '#E53935', '#1E88E5', '#7E57C2', '#F44336', '#2196F3', '#A1887F'],
-                rotate: true,
-                style: {
-                  tooltip: {
-                    text: 'Frequency: %hits',
-                    padding: '5px',
-                    alpha: 0.9,
-                    backgroundColor: '#D32F2F',
-                    borderColor: 'none',
-                    borderRadius: '5px',
-                    fontSize: '18px',
-                    fontColor: 'white',
-                    fontFamily: 'Calibri',
-                    textAlpha: 1,
-                    visible: true,
-                    width: '130px',
-                    wrapText: true
-                  },
-                  cursor:"pointer",
-                  fontFamily: 'Calibri',
-                  paddingLeft:'3px',
-                  paddingRight:'3px',
-                  hoverState: {
-                    backgroundColor: '#1976D2',
-                    borderColor: 'none',
-                    borderRadius: '5px',
-                    fontColor: 'white',
-                  }
-                }
-              }
-            };
+      const title_input = document.querySelector('#title');
+      const text_input = document.querySelector('#text');
+      const url_input = document.querySelector('#url');
+      const file_input = document.querySelector('#files');
 
 
-            zingchart.render({ 
-              id: 'myChart',
-              data: chartConfig
-            });
+      const title = title_input.disabled ? undefined : title_input.value;
+      const text = text_input.disabled ? undefined : text_input.value;
+      const url = url_input.disabled ? undefined : url_input.value;
+      const files = file_input.disabled ? undefined : file_input.files;
 
-          }
 
-        };
+      if (files && files.length > 0) {
+        if (!navigator.canShare || !navigator.canShare({files})) {
+          logError('Error: Unsupported feature: navigator.canShare()');
+          return;
+        }
+      }
 
-    });
+
+      try {
+        await navigator.share({"./okcredit.jpeg", "share", "share on any platform", "https://okcredit.in/"});
+        logText('Successfully sent share');
+      } catch (error) {
+        logError('Error sharing: ' + error);
+      }
+
+    }
+
+    async function testWebShareDelay() {
+      await sleep(6000);
+      testWebShare();
+    }
+
+
+    function onLoad() {
+      // Checkboxes disable and delete textfields.
+      document.querySelector('#title_checkbox').addEventListener('click',
+          checkboxChanged);
+      document.querySelector('#text_checkbox').addEventListener('click',
+          checkboxChanged);
+      document.querySelector('#url_checkbox').addEventListener('click',
+          checkboxChanged);
+
+      document.querySelector('#share').addEventListener('click', testWebShare);
+      document.querySelector('#share-no-gesture').addEventListener('click',
+          testWebShareDelay);
+
+
+      if (navigator.share === undefined) {
+        if (window.location.protocol === 'http:') {
+          // navigator.share() is only available in secure contexts.
+          window.location.replace(window.location.href.replace(/^http:/, 'https:'));
+        } else {
+          logError('Error: You need to use a browser that supports this draft ' +
+                   'proposal.');
+        }
+      }
+    }
+
+
+    window.addEventListener('load', onLoad);

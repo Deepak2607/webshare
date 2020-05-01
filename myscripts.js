@@ -7,10 +7,10 @@
     }
 
     function logText(message, isError) {
-      if (isError)
-        console.error(message);
-      else
-        console.log(message);
+      // if (isError)
+      //   console.error(message);
+      // else
+      //   console.log(message);
 
       const p = document.createElement('p');
       if (isError)
@@ -55,7 +55,7 @@
         logText('Successfully sent share');
       } 
       catch (error) {
-        logError('Error sharing: ' + error);
+        // logError('Error sharing: ' + error);
       }
 
     }

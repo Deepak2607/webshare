@@ -6,22 +6,22 @@
       });
     }
 
-    function logText(message, isError) {
-      // if (isError)
-      //   console.error(message);
-      // else
-      //   console.log(message);
+    // function logText(message, isError) {
+    //   if (isError)
+    //     console.error(message);
+    //   else
+    //     console.log(message);
 
-      const p = document.createElement('p');
-      if (isError)
-        p.setAttribute('class', 'error');
-      document.querySelector('#output').appendChild(p);
-      p.appendChild(document.createTextNode(message));
-    }
+    //   const p = document.createElement('p');
+    //   if (isError)
+    //     p.setAttribute('class', 'error');
+    //   document.querySelector('#output').appendChild(p);
+    //   p.appendChild(document.createTextNode(message));
+    // }
 
-    function logError(message) {
-      logText(message, true);
-    }
+    // function logError(message) {
+    //   logText(message, true);
+    // }
 
 
     async function testWebShare() {

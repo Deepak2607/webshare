@@ -1,11 +1,10 @@
-    'use strict';
-
+   
     async function testWebShare() {
 
       // const title_input = document.querySelector('#title');
       // const text_input = document.querySelector('#text');
       // const url_input = document.querySelector('#url');
-      // const file_input = document.querySelector('#files');
+      const file_input = document.querySelector('#files');
 
       // const title = title_input.value;
       // const text = text_input.value;

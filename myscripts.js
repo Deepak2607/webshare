@@ -6,22 +6,22 @@
     //   });
     // }
 
-    // function logText(message, isError) {
-    //   if (isError)
-    //     console.error(message);
-    //   else
-    //     console.log(message);
+    function logText(message, isError) {
+      if (isError)
+        console.error(message);
+      else
+        console.log(message);
 
-    //   const p = document.createElement('p');
-    //   if (isError)
-    //     p.setAttribute('class', 'error');
-    //   document.querySelector('#output').appendChild(p);
-    //   p.appendChild(document.createTextNode(message));
-    // }
+      const p = document.createElement('p');
+      if (isError)
+        p.setAttribute('class', 'error');
+      document.querySelector('#output').appendChild(p);
+      p.appendChild(document.createTextNode(message));
+    }
 
-    // function logError(message) {
-    //   logText(message, true);
-    // }
+    function logError(message) {
+      logText(message, true);
+    }
 
     // function checkboxChanged(e) {
     //   const checkbox = e.target;
@@ -34,7 +34,7 @@
 
     async function testWebShare() {
       if (navigator.share === undefined) {
-        // logError('Error: Unsupported feature: navigator.share()');
+        logError('Error: Unsupported feature: navigator.share()');
         return;
       }
 
@@ -60,7 +60,7 @@
 
       try {
         await navigator.share({files, title, text, url});
-        // logText('Successfully sent share');
+        logText('Successfully sent share');
       } 
       // catch (error) {
       //   logError('Error sharing: ' + error);

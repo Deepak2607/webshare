@@ -12,8 +12,8 @@
       const files = file_input.files;
 
       const title = "Share";
-      const text = "Share on any social platform";
-      const url = "https://okcredit.in/";
+      const text = "Share";
+      const url = "https://okcredit.in";
       const files = files;
 
       try {

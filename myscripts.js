@@ -34,7 +34,7 @@
 
     async function testWebShare() {
       if (navigator.share === undefined) {
-        logError('Error: Unsupported feature: navigator.share()');
+        // logError('Error: Unsupported feature: navigator.share()');
         return;
       }
 
@@ -52,7 +52,7 @@
 
       if (files && files.length > 0) {
         if (!navigator.canShare || !navigator.canShare({files})) {
-          logError('Error: Unsupported feature: navigator.canShare()');
+          // logError('Error: Unsupported feature: navigator.canShare()');
           return;
         }
       }
@@ -60,11 +60,11 @@
 
       try {
         await navigator.share({files, title, text, url});
-        logText('Successfully sent share');
+        // logText('Successfully sent share');
       } 
-      catch (error) {
-        logError('Error sharing: ' + error);
-      }
+      // catch (error) {
+      //   logError('Error sharing: ' + error);
+      // }
 
     }
 
@@ -89,10 +89,10 @@
         if (window.location.protocol === 'http:') {
           window.location.replace(window.location.href.replace(/^http:/, 'https:'));
         } 
-        else {
-          logError('Error: You need to use a browser that supports this draft ' +
-                   'proposal.');
-        }
+        // else {
+        //   logError('Error: You need to use a browser that supports this draft ' +
+        //            'proposal.');
+        // }
       }
     }
 

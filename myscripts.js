@@ -9,7 +9,7 @@
       // const title = title_input.value;
       // const text = text_input.value;
       // const url = url_input.value;
-      const files = file_input.files;
+      const files = "./okcredit.jpeg";
 
       const title = "Share";
       const text = "Share the application";

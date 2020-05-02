@@ -12,14 +12,19 @@ html, body {
   min-height: 150px;
 }
 
-.zc-ref {
-  display: none;
-}
 
-.error {
-      color: #d22;
-}
+.style1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 100vh,
+        }
+            
+.style2{ 
+        margin-bottom: 10px;
+        text-align: center;
+        margin-right: 30;
+        margin-left: 30;
+        }
 
-input[type="button"] {
-    height: 30px
-}

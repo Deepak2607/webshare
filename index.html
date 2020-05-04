@@ -11,7 +11,6 @@
 <body>
   <div class="style1">
   <div class="style2">
-  <p><input id="files" type="file" multiple></p>
   <p><input id="share" type="button" value="Share"/></p>
   </div>
   </div>
@@ -19,15 +18,19 @@
 
   	async function testWebShare() {
   
-      const file_input = document.querySelector('#files');
-      const files = file_input.files;
+      // const file_input = document.querySelector('#files');
+      // const files = file_input.files;
 
-      // let file = document.createElement("img");;
-      // file.src = "./okcredit.jpeg";
-      // files = [file]
+      const image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Rick_Astley_Dallas.jpg/267px-Rick_Astley_Dallas.jpg";
+      const response = await fetch(image_url);
+      const blob = await response.blob();
+      const file = new File([blob], 'rick.jpg', {type: blob.type});
+      console.log(file);
+
       const title = "Share";
       const text = "Download the app and buy essential items from your nearby shops.";
       const url = "https://okcredit.in";
+      const files = [file];
 
       try {
         await navigator.share({files, title, text, url});

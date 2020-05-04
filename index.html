@@ -21,10 +21,10 @@
       // const file_input = document.querySelector('#files');
       // const files = file_input.files;
 
-      const image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Rick_Astley_Dallas.jpg/267px-Rick_Astley_Dallas.jpg";
+      const image_url = "./share.jpg";
       const response = await fetch(image_url);
       const blob = await response.blob();
-      const file = new File([blob], 'rick.jpg', {type: blob.type});
+      const file = new File([blob], 'share.jpg', {type: blob.type});
       console.log(file);
 
       const title = "Share";
